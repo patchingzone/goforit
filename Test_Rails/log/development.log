@@ -1,0 +1,1274 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (223.3ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (8.9ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20090424153303)
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (45.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `posts`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `posts`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-24 17:59:12) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 40ms (View: 34, DB: 1) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-24 17:59:28) [GET]
+  [4;35;1mPost Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 46ms (View: 38, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-24 17:59:37) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"title"=>"Helllllllo"}}
+  [4;35;1mPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (53.8ms)[0m   [0mINSERT INTO `posts` (`updated_at`, `title`, `created_at`) VALUES('2009-04-24 15:59:37', 'Helllllllo', '2009-04-24 15:59:37')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/1
+Completed in 156ms (DB: 57) | 302 Found [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-24 17:59:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://0.0.0.0/posts/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20090424153303)
+Migrating to AddBodyToPost (20090424160138)
+  [4;35;1mSQL (95.8ms)[0m   [0mALTER TABLE `posts` ADD `body` text[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `posts`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-24 18:05:41) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2009-04-24 18:05:58) [DELETE]
+  Parameters: {"authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "id"=>"1"}
+  [4;36;1mPost Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Destroy (0.3ms)[0m   [0mDELETE FROM `posts` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts
+Completed in 13ms (DB: 7) | 302 Found [http://0.0.0.0/posts/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-24 18:05:58) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-24 18:06:00) [GET]
+  [4;36;1mPost Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 16ms (View: 8, DB: 4) | 200 OK [http://0.0.0.0/posts/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-24 18:06:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"I love HLC ", "title"=>"Hwelllloo"}}
+  [4;36;1mPost Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO `posts` (`updated_at`, `title`, `body`, `created_at`) VALUES('2009-04-24 16:06:13', 'Hwelllloo', 'I love HLC ', '2009-04-24 16:06:13')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/2
+Completed in 13ms (DB: 4) | 302 Found [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-24 18:06:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 13ms (View: 6, DB: 3) | 200 OK [http://0.0.0.0/posts/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-24 18:06:18) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 5, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-24 18:06:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 11ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-24 18:06:26) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (24.8ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (33.8ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (14.9ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.4ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (19.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.5ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (20.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.6ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (19.7ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.3ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-25 03:48:42) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:27:in `new'
+
+Rendered rescues/_trace (85.5ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:01) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (44.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:22) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (94.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:23) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (37.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:24) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (92.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:25) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (37.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:45) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (94.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:49:49) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (37.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:50:14) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (95.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:54:23) [GET]
+
+SyntaxError (/Users/admin/NetBeansProjects/Test_Rails/app/models/post.rb:3: syntax error, unexpected kEND):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (38.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 03:56:01) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 4) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (77.3ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (18.6ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.6ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (14.5ms)[0m   [0;1mDROP DATABASE IF EXISTS `mysql_test_rails_test`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE DATABASE `mysql_test_rails_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `body` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090424160138')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090424153303')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-25 04:02:36) [GET]
+  [4;36;1mPost Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 13ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-25 04:02:38) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"", "title"=>""}}
+  [4;36;1mPost Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 17ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 04:05:06) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 63ms (View: 56, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-25 04:05:57) [GET]
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 10ms (View: 3, DB: 2) | 200 OK [http://0.0.0.0/posts/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-25 04:06:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"very well come", "title"=>"Babe, how come?"}}
+  [4;35;1mPost Columns (3.8ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO `posts` (`updated_at`, `title`, `body`, `created_at`) VALUES('2009-04-25 02:06:15', 'Babe, how come?', 'very well come', '2009-04-25 02:06:15')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/3
+Completed in 16ms (DB: 6) | 302 Found [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-25 04:06:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 10ms (View: 3, DB: 2) | 200 OK [http://0.0.0.0/posts/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 04:06:20) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-25 04:31:26) [GET]
+  [4;36;1mPost Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-25 04:31:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"", "title"=>"asdsadas"}}
+  [4;36;1mPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 16ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-25 04:31:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"sdadasdas", "title"=>"asdsadas"}}
+  [4;36;1mPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO `posts` (`updated_at`, `title`, `body`, `created_at`) VALUES('2009-04-25 02:31:40', 'asdsadas', 'sdadasdas', '2009-04-25 02:31:40')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/4
+Completed in 13ms (DB: 4) | 302 Found [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-25 04:31:40) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 4) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 10ms (View: 3, DB: 2) | 200 OK [http://0.0.0.0/posts/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-25 04:31:43) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (90.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-30 16:33:40) [GET]
+  [4;35;1mPost Load (397.9ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (70.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 523ms (View: 49, DB: 559) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-30 18:54:51) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 20ms (View: 14, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-04-30 18:54:53) [GET]
+  [4;36;1mPost Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 15ms (View: 8, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-04-30 18:54:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"asdasdsdsadsasdsadas", "title"=>"test"}}
+  [4;36;1mPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mSQL (19.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Create (178.3ms)[0m   [0;1mINSERT INTO `posts` (`updated_at`, `title`, `body`, `created_at`) VALUES('2009-04-30 16:54:59', 'test', 'asdasdsdsadsasdsadas', '2009-04-30 16:54:59')[0m
+  [4;35;1mSQL (12.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/5
+Completed in 259ms (DB: 212) | 302 Found [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-04-30 18:54:59) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (4.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (103.8ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 120ms (View: 6, DB: 108) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-04-30 18:55:01) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (148.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 15:42:52) [GET]
+  [4;35;1mPost Load (211.2ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (114.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 360ms (View: 29, DB: 474) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 15:49:47) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 17:09:05) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 4) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 13ms (View: 5, DB: 4) | 200 OK [http://0.0.0.0/posts/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:16:41) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:16:43) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:16:53) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 104ms (View: 97, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:16:54) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 9ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:17:02) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:17:02) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 5, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:18:03) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 21ms (View: 14, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:18:47) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 21ms (View: 14, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 17:20:13) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 16ms (View: 7, DB: 4) | 200 OK [http://0.0.0.0/posts/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-02 17:23:21) [GET]
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 16ms (View: 9, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-02 17:23:27) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"", "title"=>""}}
+  [4;35;1mPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 16ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (237.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20090424153303)
+Migrating to AddBodyToPost (20090424160138)
+Migrating to CreateComments (20090502153307)
+  [4;35;1mSQL (96.6ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `comment` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090502153307')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `posts`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 17:36:56) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-05-02 17:37:01) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-02 17:37:08) [GET]
+
+ActionController::RoutingError (No route matches "/comment" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-02 18:04:22) [GET]
+
+ActionController::RoutingError (No route matches "/comment" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-05-02 18:04:24) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  app/controllers/comments_controller.rb:30:in `get_post'
+
+Rendered rescues/_trace (83.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:04:30) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:04:35) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (1.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 16ms (View: 7, DB: 4) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:04:39) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"5", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"asadas"}}
+  [4;36;1mPost Columns (4.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (1.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+  [4;36;1mComment Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:04:39', 5, 'asadas', '2009-05-02 16:04:39')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/5
+Completed in 60ms (DB: 9) | 302 Found [http://0.0.0.0/posts/5/comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:04:39) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 10ms (View: 3, DB: 2) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:04:44) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:04:48) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 13ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:04:54) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"5", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"jkajvdvfavfv fv"}}
+  [4;36;1mPost Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+  [4;36;1mComment Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:04:54', 5, 'jkajvdvfavfv fv', '2009-05-02 16:04:54')[0m
+  [4;35;1mSQL (10.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/5
+Completed in 31ms (DB: 17) | 302 Found [http://0.0.0.0/posts/5/comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:04:54) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:04:57) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"5", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>""}}
+  [4;36;1mPost Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+  [4;36;1mComment Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:04:57', 5, '', '2009-05-02 16:04:57')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/5
+Completed in 18ms (DB: 6) | 302 Found [http://0.0.0.0/posts/5/comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:04:57) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 10ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts/5]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:05:00) [GET]
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:08:36) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 30ms (View: 15, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:08:39) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 5) [0m
+  [4;35;1mComment Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 400ms (View: 390, DB: 5) | 200 OK [http://0.0.0.0/posts/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:15:38) [GET]
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 12ms (View: 3, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-02 18:19:09) [GET]
+
+ActionController::RoutingError (No route matches "/postssdssd" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-02 18:22:18) [GET]
+  [4;35;1mPost Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 15ms (View: 8, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-02 18:22:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"here is how it works", "title"=>"tutorial 2"}}
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO `posts` (`updated_at`, `title`, `body`, `created_at`) VALUES('2009-05-02 16:22:32', 'tutorial 2', 'here is how it works', '2009-05-02 16:22:32')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/6
+Completed in 11ms (DB: 3) | 302 Found [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:22:32) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPost Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+Completed in 14ms (View: 6, DB: 3) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:22:46) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"6", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"test of comment"}}
+  [4;36;1mPost Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+  [4;36;1mComment Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:22:46', 6, 'test of comment', '2009-05-02 16:22:46')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/6
+Completed in 19ms (DB: 6) | 302 Found [http://0.0.0.0/posts/6/comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:22:46) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;36;1mComment Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Completed in 16ms (View: 7, DB: 4) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:22:53) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"6", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"ahkhlasdflhkadhlk"}}
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+  [4;36;1mComment Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:22:53', 6, 'ahkhlasdflhkadhlk', '2009-05-02 16:22:53')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/6
+Completed in 19ms (DB: 6) | 302 Found [http://0.0.0.0/posts/6/comments]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:22:53) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;36;1mComment Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Completed in 16ms (View: 7, DB: 4) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-02 18:22:56) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"6", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"dfjkfjsdfjkl"}}
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+  [4;36;1mComment Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-02 16:22:56', 6, 'dfjkfjsdfjkl', '2009-05-02 16:22:56')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/6
+Completed in 18ms (DB: 6) | 302 Found [http://0.0.0.0/posts/6/comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:22:56) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;36;1mComment Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Completed in 20ms (View: 10, DB: 5) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-02 18:23:00) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-02 18:23:04) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;36;1mComment Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Completed in 20ms (View: 9, DB: 6) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-03 16:01:19) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPost Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;35;1mComment Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 20ms (View: 8, DB: 6) | 200 OK [http://0.0.0.0/posts/6]
+  [4;36;1mSQL (112.9ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-04 15:17:33) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPost Columns (364.7ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (132.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (45.6ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;36;1mComment Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Completed in 1679ms (View: 802, DB: 658) | 200 OK [http://0.0.0.0/posts/6]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-05 15:13:05) [GET]
+  [4;36;1mPost Load (21.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 199ms (View: 121, DB: 24) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-05 15:13:11) [GET]
+  [4;35;1mPost Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 369ms (View: 182, DB: 3) | 200 OK [http://0.0.0.0/posts/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-05 15:13:17) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "post"=>{"body"=>"", "title"=>""}}
+  [4;35;1mPost Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 914ms (View: 74, DB: 18) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-05 15:13:35) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 11ms (View: 4, DB: 2) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-05 15:13:41) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;35;1mComment Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 47ms (View: 35, DB: 6) | 200 OK [http://0.0.0.0/posts/6]
+  [4;36;1mSQL (64.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-06 07:33:01) [GET]
+  [4;35;1mPost Load (141.5ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (25.1ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 236ms (View: 30, DB: 231) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-06 07:33:10) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mPost Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (61.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (55.7ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 5) [0m
+  [4;35;1mComment Columns (23.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 516ms (View: 367, DB: 145) | 200 OK [http://0.0.0.0/posts/5]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-05-06 07:33:38) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPost Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (1.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 22ms (View: 9, DB: 5) | 200 OK [http://0.0.0.0/posts/5/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-06 07:33:58) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 16ms (View: 5, DB: 3) | 200 OK [http://0.0.0.0/posts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-06 07:34:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Columns (5.8ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 2) [0m
+Completed in 20ms (View: 8, DB: 7) | 200 OK [http://0.0.0.0/posts/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-06 07:34:10) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"2", "authenticity_token"=>"FEx5PQSk1aBRMKtataWU34mS17pXLjA2MH7wEWC8IR8=", "comment"=>{"comment"=>"sdfdfdsfddfsfsfs"}}
+  [4;35;1mPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+  [4;35;1mComment Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mComment Create (71.9ms)[0m   [0mINSERT INTO `comments` (`updated_at`, `post_id`, `comment`, `created_at`) VALUES('2009-05-06 05:34:10', 2, 'sdfdfdsfddfsfsfs', '2009-05-06 05:34:10')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/2
+Completed in 97ms (DB: 79) | 302 Found [http://0.0.0.0/posts/2/comments]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-06 07:34:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPost Columns (7.1ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.8ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 2) [0m
+  [4;35;1mComment Columns (4.7ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 33ms (View: 11, DB: 14) | 200 OK [http://0.0.0.0/posts/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-06 07:34:23) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 10ms (View: 3, DB: 2) | 200 OK [http://0.0.0.0/posts]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-06 07:36:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPost Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 2) [0m
+  [4;35;1mComment Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 19ms (View: 8, DB: 5) | 200 OK [http://0.0.0.0/posts/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-06 07:37:34) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 14ms (View: 5, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-06 07:39:45) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPost Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 6) [0m
+  [4;35;1mComment Columns (3.2ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 89ms (View: 76, DB: 8) | 200 OK [http://0.0.0.0/posts/6]
+  [4;36;1mSQL (128.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-06 22:38:58) [GET]
+  [4;35;1mPost Load (261.9ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (89.4ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 1025ms (View: 463, DB: 480) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (117.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 19:24:17) [GET]
+  [4;36;1mPost Load (296.5ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (70.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 824ms (View: 202, DB: 485) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 19:24:28) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (71.9ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 228ms (View: 115, DB: 73) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 22:37:43) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 115ms (View: 54, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 23:07:10) [GET]
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 13ms (View: 4, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 23:56:33) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 133ms (View: 91, DB: 3) | 200 OK [http://test-rails.local/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-07 23:57:33) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+Completed in 15ms (View: 5, DB: 3) | 200 OK [http://test-rails.local/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-08 12:20:58) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Completed in 54ms (View: 14, DB: 3) | 200 OK [http://0.0.0.0/]

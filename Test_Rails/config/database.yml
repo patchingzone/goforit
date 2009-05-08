@@ -1,0 +1,26 @@
+development:
+      host: localhost
+      adapter: mysql
+      database: mysql_test_rails
+      port: 3306
+      username: root
+      password:
+
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+      host: localhost
+      adapter: mysql
+      database: mysql_test_rails_test
+      port: 3306
+      username: root
+      password:
+
+production:
+      host: localhost
+      adapter: mysql
+      database: mysql_test_rails_prod
+      port: 3306
+      username: root
+      password:
